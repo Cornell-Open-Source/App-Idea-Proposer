@@ -1,12 +1,13 @@
-var express = require("express");
-var app = express();
-app.use(express.logger());
+"use strict"
 
-app.get('/', function(request, response) {
-  response.send('Hello World!');
-});
+var express = require('express')
+var app = express()
+app.use(express.logger())
 
-var port = process.env.PORT || 5000;
+// Set up routes
+require('./routes')(app)
+
+var port = process.env.PORT || 5000
 app.listen(port, function() {
-  console.log("Listening on " + port);
-});
+  console.log('Listening on ' + port)
+})
